@@ -1,13 +1,12 @@
 # treefy
 
+`treefy` is a command line tool written in Clojure that takes a list of file paths and displays it as a tree, allowing interactive exploration by collapsing and expanding selected paths.
 
-`treefy` is a little Clojure command line tool that takes as input a list of file paths, it transforms them into a tree data structure and displays it, allowing interactive exploration of the tree by collapsing and expanding selected folders.
-
-As an example, `treefy` can be used to better understand the output of a dry-run rsync execution that involves many files and directories.
+For example, `treefy` can be used to easily interpret a dry-run `rsync` output involving many files and directories.
 
 Here it is in action:
 
-[![asciicast](https://asciinema.org/a/Mq3m9EfvsC8SQaJdvpp4lsIFt.png)](https://asciinema.org/a/Mq3m9EfvsC8SQaJdvpp4lsIFt)
+[![asciicast](https://asciinema.org/a/437064.svg)](https://asciinema.org/a/437064?autoplay=1)
 
 
 ## Usage examples
@@ -17,6 +16,10 @@ Here it is in action:
 
     ## Interpret the output of rsync
     rsync -av --dry-run src dst | grep 'src/' | lein run
+
+Instead of `lein run`, the [babashka](https://babashka.org/) interpreter can also be used:
+
+    alias treefy='bb -f /path/to/treefy/src/treefy/core.clj'
 
 
 ## History and motivation
